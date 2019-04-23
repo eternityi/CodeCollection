@@ -1,1 +1,2 @@
-# CodeCollection
+# Initial page
+
