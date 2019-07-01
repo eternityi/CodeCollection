@@ -1,5 +1,7 @@
 # 生成MD5签名原理
+
 PHP 生成MD5签名 并 测试可用性的代码
+
 ## MD5是没办法反向破解的
 
 在讲解这个之前一定要了解一个东西：MD5是没办法反向破解的，如果你不了解这个那这原理理解起来有点难，当然一些简单的组合通过一些网站的暴力破解，但我们的数据都是32甚至更多的MD5加密，所以这是几乎不能破解的。了解了这一点，你才能不在这个原理上走弯路。
@@ -40,11 +42,11 @@ PHP 生成MD5签名 并 测试可用性的代码
  * 2.请求时签名：$sign = rsaSign(待签名字符串,私钥);
  * 3.返回时验证：$_POST['sign'] == rsaVerify(待验证字符串,公钥);
  */
- 
+
 /**
  * 演示md5签名过程
  */
- 
+
 /**
  * 除去数组中的空值和签名参数
  * @param $para 签名参数组
@@ -96,12 +98,12 @@ function md5Sign($prestr, $key) {
     $prestr = $prestr . $key;
     return md5($prestr);
 }
- 
+
 class Submit{
     public $_sign_type ='';
     public $_md5_key = '';
     public $_private_key_path = '';
- 
+
     public function __construct($sign_type){
         $this->_sign_type = strtoupper($sign_type);
     }
@@ -162,9 +164,9 @@ $md5->_md5_key =  'd41d8cd98f00b204e9800998ecf8427e';
 $a=$md5->buildRequestPara($para_token);
 echo "<pre>";
 print_r($a);
- 
+
 //打印结果：Array ( [money] => 5.6 [title] => app [sign] => 9ae9554fac509eea96e6e8efba6846d5 [sign_type] => MD5 )
- 
+
 //4.假设现在服务器返回以下数据，如何验证此数据是由服务发送的
 $return = array(
         'title'=> 'app',
@@ -178,16 +180,13 @@ $return = array(
     $return = $md5_vertiry->filterPara($return);
     echo $md5_vertiry->buildRequestMysign($return)."<br/>";
     //如果生成的签名相等，即验证成功
-     
+
     if($a['sign']==$md5_vertiry->buildRequestMysign($return)){
         echo "验证成功";
     }else{
         echo "验证失败";
     }
-
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
-
-
 
