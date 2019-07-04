@@ -20,6 +20,11 @@
 
 * [iOS 开源项目？](ios/ios-kai-yuan-xiang-mu.md)
 * [NSNotificationCenter](ios/nsnotificationcenter.md)
+* [Key Value Coding](ios/key-value-coding.md)
+* [key Value Observing](ios/key-value-observing.md)
+* [Category](ios/category.md)
+* [Protocol](ios/protocol.md)
+* [Allocation and Initialization](ios/allocation-and-initialization.md)
 
 ## Docker
 
