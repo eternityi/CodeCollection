@@ -35,3 +35,7 @@
 
 * [Git 的基础命令](git/git-de-ji-chu-ming-ling.md)
 
+## Dev-Tools
+
+* [Mac 设置指南](dev-tools/mac-she-zhi-zhi-nan.md)
+
