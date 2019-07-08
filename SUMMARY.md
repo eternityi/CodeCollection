@@ -25,6 +25,7 @@
 * [Category](ios/category.md)
 * [Protocol](ios/protocol.md)
 * [Allocation and Initialization](ios/allocation-and-initialization.md)
+* [MobileGestalt](ios/mobilegestalt.md)
 
 ## Docker
 
@@ -38,4 +39,9 @@
 ## Dev-Tools
 
 * [Mac 设置指南](dev-tools/mac-she-zhi-zhi-nan.md)
+
+## 编程范式
+
+* [函数式编程术语和概念](bian-cheng-fan-shi/han-shu-shi-bian-cheng-shu-yu-he-gai-nian.md)
+* [函数式编程初探](bian-cheng-fan-shi/han-shu-shi-bian-cheng-chu-tan.md)
 
