@@ -12,26 +12,28 @@
 
 对于一个可执行文件来说，它的加载过程是： 分为两大部分：
 
-1. pre-main 指的是操作系统开始执行一个可执行文件，并完成进程创建、执行文件加载、动态链接、环境配置
-2. main 指的是从加载main函数入口以后，到app delegate完成加载回调的过程
+1. **pre-main** 指的是操作系统开始执行一个可执行文件，并完成进程创建、执行文件加载、动态链接、环境配置
+2. **main** 指的是从加载main函数入口以后，到app delegate完成加载回调的过程
 
-#### 操作系统加载App可执行文件
+![pre-main &#x8FC7;&#x7A0B;](../.gitbook/assets/image%20%285%29.png)
 
-操作系统加载可执行文件，通过fork（创建一个进程）指令在新的空间内来执行可执行文件，加载依赖的可执行文件\(mach-o\)文件，定位其内部与外部指针引用，例如字符串与函数，执行声明为attribute\(\(constructor\)\)的C函数，加载扩展\(Category\)中的方法，C++静态对象加载，调用ObjC的+load函数
+![main&#x8FC7;&#x7A0B;](../.gitbook/assets/image%20%2814%29.png)
 
-![](https://user-gold-cdn.xitu.io/2018/12/11/1679ce35f0bc7d31?imageView2/0/w/1280/h/960/ignore-error/1)
+pre-main 基本流程：
 
-![](https://user-gold-cdn.xitu.io/2018/12/11/1679ce38f78f6463?imageView2/0/w/1280/h/960/ignore-error/1)
+App 开始启动后，系统首先加载可执行文件（自身 App 的所有 .o 文件的集合），然后加载动态链接器 dyld，dyld 是一个专门用来加载动态链接库的库。 
 
-基本流程：
+执行从 dyld 开始，dyld 从可执行文件的依赖开始，递归加载所有的依赖动态链接库。 动态链接库包括：iOS 中用到的所有系统 framework，加载 OC runtime 方法的 libobjc，系统级别的 libSystem，例如 `libdispatch(GCD)` 和 `libsystem_blocks (Block)`。
 
-App 开始启动后，系统首先加载可执行文件（自身 App 的所有 .o 文件的集合），然后加载动态链接器 dyld，dyld 是一个专门用来加载动态链接库的库。 执行从 dyld 开始，dyld 从可执行文件的依赖开始，递归加载所有的依赖动态链接库。 动态链接库包括：iOS 中用到的所有系统 framework，加载 OC runtime 方法的 libobjc，系统级别的 libSystem，例如 libdispatch\(GCD\) 和 libsystem\_blocks \(Block\)。
+### 操作系统加载App可执行文件
+
+操作系统加载可执行文件，通过fork（创建一个进程）指令在新的空间内来执行可执行文件，加载依赖的可执行文件\(mach-o\)文件，定位其内部与外部指针引用，例如字符串与函数，执行声明为`attribute((constructor))`的C函数，加载扩展\(Category\)中的方法，C++静态对象加载，调用ObjC的`+load`函数
 
 ### dyld加载动态库
 
 动态链接库的加载过程主要由dyld来完成，dyld是苹果的动态链接器。
 
-![](https://user-gold-cdn.xitu.io/2018/12/11/1679ce59e853cf1b?imageView2/0/w/1280/h/960/ignore-error/1)
+![dyld3&#x67B6;&#x6784;](../.gitbook/assets/image%20%2812%29.png)
 
 1. 系统先读取App的可执行文件（Mach-O文件）里的mach-o headers
 2. dyld去初始化运行环境，从里面获得动态依赖，开启缓存策略，加载程序相关依赖库\(其中也包含我们的可执行文件\)，并对这些库进行链接，最后调用每个依赖库的初始化方法，在这一步，runtime被初始化。当所有依赖库的初始化后，轮到最后一位\(程序可执行文件\)进行初始化。
@@ -46,7 +48,7 @@ App 开始启动后，系统首先加载可执行文件（自身 App 的所有 .
 
 官方文档：[developer.apple.com/library/arc…](https://link.juejin.im/?target=https%3A%2F%2Fdeveloper.apple.com%2Flibrary%2Farchive%2Fdocumentation%2FPerformance%2FConceptual%2FCodeFootprint%2FArticles%2FMachOOverview.htm)
 
-Mach-O是OS X中二进制文件的本机可执行格式，是传送代码的首选格式。可执行格式确定二进制文件中的代码和数据被读入内存的顺序。代码和数据的排序会影响内存使用和分页活动，从而直接影响程序的性能。段的大小通过其包含的所有段中的字节数来度量，并向上舍入到下一个虚拟内存页边界。 Mach-O二进制文件被组织成segements。每个segement包含一个或多个部分。每个部分都有不同类型的代码或数据。segement始终从页面边界开始，但section不一定是页面对齐的。因此，segement终是4096字节或4千字节的倍数，其中4096字节是最小大小。 Mach-O可执行文件的segement和section根据其预期用途命名。segement名称的约定是使用以双下划线开头的全大写字母（例如，**TEXT）; section名称的约定是使用以双下划线开头的全小写字母（例如，**text）。 Mach-O可执行文件中有几个可能的segements，但只有两个与性能有关：\_\_TEXT段和\_\_DATA段。
+Mach-O是OS X中二进制文件的本机可执行格式，是传送代码的首选格式。可执行格式确定二进制文件中的代码和数据被读入内存的顺序。代码和数据的排序会影响内存使用和分页活动，从而直接影响程序的性能。段的大小通过其包含的所有段中的字节数来度量，并向上舍入到下一个虚拟内存页边界。 Mach-O二进制文件被组织成segements。每个segement包含一个或多个部分。每个部分都有不同类型的代码或数据。segement始终从页面边界开始，但section不一定是页面对齐的。因此，segement终是4096字节或4千字节的倍数，其中4096字节是最小大小。 Mach-O可执行文件的segement和section根据其预期用途命名。segement名称的约定是使用以双下划线开头的全大写字母（例如，TEXT）。 **section名称的约定是使用以双下划线开头的全小写字母（例如，**text）。 Mach-O可执行文件中有几个可能的segements，但只有两个与性能有关：\_\_TEXT段和\_\_DATA段。
 
 The \_\_TEXT Segment: Read Only \_\_TEXT segment是包含可执行代码和常量数据的只读区域。按照惯例，编译器工具创建具有至少一个只读\_\_TEXT segment的每个可执行文件。由于该段是只读的，因此内核可以将\_\_TEXT segment直接从可执行文件映射到内存中一次。当segment被映射到内存时，它可以在所有进程之间共享其内容。 （这主要是框架和其他共享库的情况。）只读属性还意味着构成\_\_TEXT segment的页面永远不必保存到后备存储。如果内核需要释放物理内存，它可以丢弃一个或多个\_\_TEXT页面，并在需要时从磁盘重新读取它们。 \_\_TEXT segment的主要部分,sections分布
 
@@ -81,6 +83,8 @@ Mach-O 性能影响 Mach-O可执行文件的\_\_TEXT segment和\_\_DATA segment�
 
 dyld的加载过程会初始化Runtime系统，在此阶段，有相当多的优化工作可以做
 
+![](../.gitbook/assets/image%20%2811%29.png)
+
 ![](https://user-gold-cdn.xitu.io/2018/12/11/1679ce602bfdf9c8?imageView2/0/w/1280/h/960/ignore-error/1)这过程包括：
 
 1. 所有类型的定义和注册，Objective-C的类不是编译器决定的，是运行时动态载入到全局表中的
@@ -92,7 +96,7 @@ dyld的加载过程会初始化Runtime系统，在此阶段，有相当多的优
 
 在Runtime系统加载以后，开始进行初始化
 
-![](https://user-gold-cdn.xitu.io/2018/12/11/1679ce635c0b3e72?imageView2/0/w/1280/h/960/ignore-error/1)
+![](../.gitbook/assets/image.png)
 
 1. Objc的+load\(\)函数
 2. C++的构造函数属性函数 形如attribute\(\(constructor\)\) void DoSomeInitializationWork\(\)
@@ -113,7 +117,7 @@ dyld的加载过程会初始化Runtime系统，在此阶段，有相当多的优
 1. 减少ObjC的类膨胀问题，清理没有使用的类，合并松散无用的类
 2. 减少静态变量的声明和初始化的分离
 
-```text
+```c
 static int x;
 static short conv_table [128];
 //更换为
@@ -124,11 +128,13 @@ static short conv_table [128] = {0};
 
 减少静态变量的使用 3. 减少符号表的导出 通过设置-exported\_symbols\_list或-unexported\_symbols\_lis来限制符号表的导出，从而减少dyld的工作量 4. 去除没有使用的动态库依赖，明确所依赖的frameworks是require还是optional，optional会动态进行额外检查 5. 删除没有用的方法 6. 减少+load函数的实现，并减少在其中操作的逻辑 7. 对某些经常调用的代码进行二进制化，生成静态库，多使用静态库代替动态库，将多个静态库框架，集中制作成静态framework，从而能够减少dyld的链接工作 关于冷启动和热启动的不同如下：
 
-![](https://user-gold-cdn.xitu.io/2018/12/11/1679ce6cf0c356bc?imageView2/0/w/1280/h/960/ignore-error/1)
+![](../.gitbook/assets/image%20%283%29.png)
 
 ### main阶段
 
-![](https://user-gold-cdn.xitu.io/2018/12/11/1679ce6f3c1a7d9a?imageView2/0/w/1280/h/960/ignore-error/1)从上图可以得到，影响main阶段的启动时间因素是：
+![](../.gitbook/assets/image%20%282%29.png)
+
+从上图可以得到，影响main阶段的启动时间因素是：
 
 1. AppDelegate代理的加载生命周期回调
 2. Application Window的布局、绘制和加载
