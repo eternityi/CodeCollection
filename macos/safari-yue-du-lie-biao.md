@@ -32,7 +32,7 @@
 cd ~/Library/Safari/Bookmarks.plist && plutil -convert xml1 -o Bookmarks.xml Bookmarks.plist
 ```
 
-![&#x8F6C;&#x6362;&#x4E3A; XML &#x540E;&#x7684;&#x9605;&#x8BFB;&#x5217;&#x8868;&#x6587;&#x4EF6;&#x7ED3;&#x6784;](../.gitbook/assets/image%20%2810%29.png)
+![&#x8F6C;&#x6362;&#x4E3A; XML &#x540E;&#x7684;&#x9605;&#x8BFB;&#x5217;&#x8868;&#x6587;&#x4EF6;&#x7ED3;&#x6784;](../.gitbook/assets/image%20%2811%29.png)
 
 
 
@@ -40,7 +40,7 @@ cd ~/Library/Safari/Bookmarks.plist && plutil -convert xml1 -o Bookmarks.xml Boo
 
 iOS 上，阅读列表的存储位置稍有差别，位于 `/private/var/mobile/Library/Safari/Bookmarks.db` 这一数据库文件中，但仍然和普通书签一起存储。根据数据库各列的名称可以看出，其存储的信息和 macOS 上的 Safari 基本是一一对应的。
 
-![ iOS &#x4E0A;&#x7684; Safari &#x4E66;&#x7B7E;&#x6570;&#x636E;&#x5E93;](../.gitbook/assets/image%20%287%29.png)
+![ iOS &#x4E0A;&#x7684; Safari &#x4E66;&#x7B7E;&#x6570;&#x636E;&#x5E93;](../.gitbook/assets/image%20%288%29.png)
 
 可见，要实现将阅读列表和第三方服务打通，只需要完成以下操作：
 

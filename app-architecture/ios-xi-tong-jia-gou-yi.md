@@ -26,7 +26,7 @@ _**1）Architectures \(架构\)**_
 
 指明选定的Target要求被编译生成的二进制包所支持的指令集，而支持的指令集越多，就会编译出包含多个指令集代码的数据包，对应生成二进制包就越大，也就是ipa包会变大。![](//upload-images.jianshu.io/upload_images/1856215-992c9ea4e4c3c88c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000)
 
-![Xcode - Build Settings - Architectures](../.gitbook/assets/image%20%2812%29.png)
+![Xcode - Build Settings - Architectures](../.gitbook/assets/image%20%2813%29.png)
 
 _**2）Valid Architectures \(有效架构\)**_
 
@@ -108,7 +108,7 @@ mv Hyphenate Hyphenate.framework/
 
 先来看一下CPU的组成：
 
-![CPU&#x7EC4;&#x6210;](../.gitbook/assets/image%20%281%29.png)
+![CPU&#x7EC4;&#x6210;](../.gitbook/assets/image%20%282%29.png)
 
 从上面的CPU结构图片中可以看出CPU主要分为**存储单元\(SU\)**和**运算单元\(ALU\)**以及**控制单元\(CU\)**。如果将这些部件和结构映射到**VCPU**这个类时你会发现：存储单元所对应的就是里面的数据成员；而运算单元和控制单元则对应里面的所有实例方法，运算单元提供了CPU指令的实现。
 

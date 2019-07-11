@@ -2,7 +2,7 @@
 
 ### Blob
 
-![](../.gitbook/assets/image%20%288%29.png)
+![](../.gitbook/assets/image%20%289%29.png)
 
 你可能没怎么见过‘blob’这个单词，但它确是 **git 中最基本的数据存储结构。**每次文件改变，Git 直接存储文件内容，这在git术语里被称作 Blob。  
   
@@ -10,7 +10,7 @@
 
 ### **4254a17be3（哈希）**
 
-![](../.gitbook/assets/image%20%2811%29.png)
+![](../.gitbook/assets/image%20%2812%29.png)
 
 你看到的这些数字是内容的 [SHA1 哈希](https://link.zhihu.com/?target=http%3A//en.wikipedia.org/wiki/SHA1)，这些哈希值在git中作为每个对象的唯一标识，这些对象可能是commit，tree，或者 blob。哈希由 40 个字符构成，但仅仅需要前几个字符（在 Github 中是 10 个）就足够成为唯一的标识。
 
