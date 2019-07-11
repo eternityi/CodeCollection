@@ -8,10 +8,6 @@
 * [数据结构](interview/untitled-1.md)
 * [iOS 面试题](interview/ios-mian-shi-ti.md)
 
-## PHP
-
-* [生成MD5签名原理](php/sheng-cheng-md5-qian-ming-yuan-li.md)
-
 ## macOS
 
 * [Safari 阅读列表](macos/safari-yue-du-lie-biao.md)
@@ -28,6 +24,18 @@
 * [Allocation and Initialization](ios/allocation-and-initialization.md)
 * [MobileGestalt](ios/mobilegestalt.md)
 
+## App Architecture
+
+* [iOS系统架构（一）](app-architecture/ios-xi-tong-jia-gou-yi.md)
+* [iOS系统架构（二）](app-architecture/ios-xi-tong-jia-gou-er.md)
+* [iOS系统架构（三）App启动流程分析与优化](app-architecture/ios-xi-tong-jia-gou-san-app-qi-dong-liu-cheng-fen-xi-yu-you-hua.md)
+
+## 编程范式
+
+* [函数式编程术语和概念](bian-cheng-fan-shi/han-shu-shi-bian-cheng-shu-yu-he-gai-nian.md)
+* [函数式编程初探](bian-cheng-fan-shi/han-shu-shi-bian-cheng-chu-tan.md)
+* [RxSwift 简介](bian-cheng-fan-shi/rxswift-jian-jie.md)
+
 ## Docker
 
 * [Docker 入门教程](docker/docker-ru-men-jiao-cheng.md)
@@ -37,13 +45,11 @@
 
 * [Git 的基础命令](git/git-de-ji-chu-ming-ling.md)
 
+## PHP
+
+* [生成MD5签名原理](php/sheng-cheng-md5-qian-ming-yuan-li.md)
+
 ## Dev-Tools
 
 * [Mac 设置指南](dev-tools/mac-she-zhi-zhi-nan.md)
-
-## 编程范式
-
-* [函数式编程术语和概念](bian-cheng-fan-shi/han-shu-shi-bian-cheng-shu-yu-he-gai-nian.md)
-* [函数式编程初探](bian-cheng-fan-shi/han-shu-shi-bian-cheng-chu-tan.md)
-* [RxSwift 简介](bian-cheng-fan-shi/rxswift-jian-jie.md)
 
