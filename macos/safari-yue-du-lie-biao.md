@@ -32,7 +32,7 @@
 cd ~/Library/Safari/Bookmarks.plist && plutil -convert xml1 -o Bookmarks.xml Bookmarks.plist
 ```
 
-![&#x8F6C;&#x6362;&#x4E3A; XML &#x540E;&#x7684;&#x9605;&#x8BFB;&#x5217;&#x8868;&#x6587;&#x4EF6;&#x7ED3;&#x6784;](../.gitbook/assets/image%20%289%29.png)
+![&#x8F6C;&#x6362;&#x4E3A; XML &#x540E;&#x7684;&#x9605;&#x8BFB;&#x5217;&#x8868;&#x6587;&#x4EF6;&#x7ED3;&#x6784;](../.gitbook/assets/image%20%2810%29.png)
 
 
 

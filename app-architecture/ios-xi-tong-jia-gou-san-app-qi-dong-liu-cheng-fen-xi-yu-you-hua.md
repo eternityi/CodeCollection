@@ -19,7 +19,7 @@ App 启动的方式分为**冷启动**和**热启动**两种。简单来说，�
 
 ![pre-main &#x8FC7;&#x7A0B;](../.gitbook/assets/image%20%286%29.png)
 
-![main&#x8FC7;&#x7A0B;](../.gitbook/assets/image%20%2815%29.png)
+![main&#x8FC7;&#x7A0B;](../.gitbook/assets/image%20%2817%29.png)
 
 pre-main 基本流程：
 
@@ -35,7 +35,7 @@ App 开始启动后，系统首先加载可执行文件（自身 App 的所有 .
 
 动态链接库的加载过程主要由dyld来完成，dyld是苹果的动态链接器。
 
-![dyld3&#x67B6;&#x6784;](../.gitbook/assets/image%20%2813%29.png)
+![dyld3&#x67B6;&#x6784;](../.gitbook/assets/image%20%2815%29.png)
 
 1. 系统先读取App的可执行文件（Mach-O文件）里的mach-o headers
 2. dyld去初始化运行环境，从里面获得动态依赖，开启缓存策略，加载程序相关依赖库\(其中也包含我们的可执行文件\)，并对这些库进行链接，最后调用每个依赖库的初始化方法，在这一步，runtime被初始化。当所有依赖库的初始化后，轮到最后一位\(程序可执行文件\)进行初始化。
@@ -85,7 +85,7 @@ Mach-O 性能影响 Mach-O可执行文件的\_\_TEXT segment和\_\_DATA segment�
 
 dyld的加载过程会初始化Runtime系统，在此阶段，有相当多的优化工作可以做
 
-![](../.gitbook/assets/image%20%2812%29.png)
+![](../.gitbook/assets/image%20%2813%29.png)
 
 ![](https://user-gold-cdn.xitu.io/2018/12/11/1679ce602bfdf9c8?imageView2/0/w/1280/h/960/ignore-error/1)这过程包括：
 
@@ -249,9 +249,9 @@ iOS App 有后台机制，App 可在某些条件下，在用户不感知的情�
 * applicationdidEnterBackground
 * applicaitonWillTerminate
 
-但在实践的典型场景中我们发现，从用户点击 Home 键到程序接收到-applicationdidEnterBackground 回调存在一定的时间差，该时间差会影响到流失率的判断。
+但在实践的典型场景中我们发现，从用户点击 Home 键到程序接收到-`applicationdidEnterBackground` 回调存在一定的时间差，该时间差会影响到流失率的判断。
 
-例如，用户在时刻 0.0s 启动 app，启动总时长为 4.0s。用户在时刻 3.8s 点击了 home 键离开 App，则应该记作 launch\_leave = true。而程序在时刻 4.3s 接收到了-applicationDidEnterBackground 回调，此时启动已经结束，获得了启动耗时 4.0s。通过比较 Tleave &gt; Tlaunch\_total，则错误地记为 launch\_leave = false。
+例如，用户在时刻 0.0s 启动 app，启动总时长为 4.0s。用户在时刻 3.8s 点击了 home 键离开 App，则应该记作 `launch_leave = true`。而程序在时刻 4.3s 接收到了-`applicationDidEnterBackground` 回调，此时启动已经结束，获得了启动耗时 4.0s。通过比较 Tleave &gt; Tlaunch\_total，则错误地记为 launch\_leave = false。
 
 由此推测，这里的 delay 是设置灵敏度阻尼，消除用户决策的摆动。这个延时大约在 0.5s 左右。
 
@@ -287,25 +287,15 @@ iOS App 有后台机制，App 可在某些条件下，在用户不感知的情�
 总结来看，pre-main 主要流程包括：
 
 1. fork 进程
-
 2. 加载 executable
-
 3. 加载 DYLD
-
 4. 分析依赖，迭代加载动态库
-
-a. rebase
-
-b. rebind
-
-c. 耗时多
-
+   1. rebase
+   2. rebind
+   3. 耗时多
 5. 准备环境
-
-a. 准备 OC 运行时
-
-b. 准备 C++环境
-
+   1. 准备 OC 运行时
+   2. 准备 C++环境
 6. main 函数
 
 **2\). 优化建议**
@@ -338,8 +328,6 @@ c. Swift 没有数据不对齐问题
 
 ```text
 DYLD_PRINT_STATICS = 1
-
-复制代码
 ```
 
 对于线上环境，根据 premain 主要流程的分析，我们的解决方案是：
@@ -354,8 +342,8 @@ DYLD_PRINT_STATICS = 1
 
 post-main 阶段的技术优化主要针对两个方法的执行耗时来进行：
 
-1. - \(BOOL\)application:\(UIApplication \*\)application didFinishLaunchingWithOptions:
-2. - \(void\)applicationDidBecomeActive:\(UIApplication \*\)application;
+* `- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:`
+* `- (void)applicationDidBecomeActive:(UIApplication *)application;`
 
 为什么包含 2，需要我们对 iOS App 生命周期有一定理解。从操作系统的视角来看，iOS App 本质上是一个进程。对于 Mac OS/iOS 系统，进程的生命周期状态包括了：
 
@@ -371,7 +359,7 @@ post-main 阶段的技术优化主要针对两个方法的执行耗时来进行�
 
 而对于 UIApplication，定义了生命周期状态：
 
-```text
+```objectivec
 //  UIApplication.h
 
 typedef NS_ENUM(NSInteger, UIApplicationState) {
@@ -379,19 +367,17 @@ typedef NS_ENUM(NSInteger, UIApplicationState) {
     UIApplicationStateInactive,   // 前台， UIApplication不响应事件
     UIApplicationStateBackground  // 后台， UIApplication不在屏幕上显示
 } NS_ENUM_AVAILABLE_IOS(4_0);
-
-复制代码
 ```
 
 组合起来的状态机如下图：
 
-![](https://user-gold-cdn.xitu.io/2019/5/10/16a9fa88a862836c?imageView2/0/w/1280/h/960/ignore-error/1)
+![](../.gitbook/assets/image%20%289%29.png)
 
 通过上面的讨论，我们可以分析出以下问题：
 
 * UIApplication 会因为某种原因，在用户不感知的情况下被唤起，进程进入 running 状态，但停留在 iOS 的 background 状态
-* 每次冷启动都会执行- \(BOOL\)application:\(UIApplication \*\)application didFinishLaunchingWithOptions:，但未必进入前台
-* 在 didFinishLaunchingWithOptions 中进行大量 UI 和网络请求等操作是不合理
+* 每次冷启动都会执行`- (BOOL)application:(UIApplication *)application  didFinishLaunchingWithOptions:`，但未必进入前台
+* 在 `didFinishLaunchingWithOptions` 中进行大量 UI 和网络请求等操作是不合理
 
 **post-main 优化思路和建议**
 
@@ -403,8 +389,8 @@ typedef NS_ENUM(NSInteger, UIApplicationState) {
   * 当 CPU 时间片跑满时，使用多线程并发不能提高性能，反而会因为频繁的线程上下文切换，造成 overhead 耗时增长
   * 尽可能将启动项延迟执行，在时间轴上平滑，降低 CPU 利用率峰值
 * 启动项分组
-  * -didFinishLaunchingWithOptions 只执行必要的核心启动项
-  * 其他启动项，在首次调用-applicationDidBecomeActive:后执行
+  * `-didFinishLaunchingWithOptions` 只执行必要的核心启动项
+  * 其他启动项，在首次调用`-applicationDidBecomeActive:`后执行
 
 #### 二、精细化策略
 
@@ -429,6 +415,8 @@ typedef NS_ENUM(NSInteger, UIApplicationState) {
 例如，在 T1 闪屏页阶段，用户处于阻塞等待的状态，无法跳过。而且闪屏页是系统渲染的静态视图，我们无法提供动态响应。那么，我们可以通过在静态视图上提供更多信息量，给等待中的用户消费。
 
 主观感受对比如下图：
+
+![](../.gitbook/assets/image%20%2814%29.png)
 
 ![](https://user-gold-cdn.xitu.io/2019/5/10/16a9fd9e66116a63?imageView2/0/w/1280/h/960/ignore-error/1)
 

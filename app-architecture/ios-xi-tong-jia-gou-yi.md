@@ -26,7 +26,7 @@ _**1）Architectures \(架构\)**_
 
 指明选定的Target要求被编译生成的二进制包所支持的指令集，而支持的指令集越多，就会编译出包含多个指令集代码的数据包，对应生成二进制包就越大，也就是ipa包会变大。![](//upload-images.jianshu.io/upload_images/1856215-992c9ea4e4c3c88c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000)
 
-![Xcode - Build Settings - Architectures](../.gitbook/assets/image%20%2811%29.png)
+![Xcode - Build Settings - Architectures](../.gitbook/assets/image%20%2812%29.png)
 
 _**2）Valid Architectures \(有效架构\)**_
 
