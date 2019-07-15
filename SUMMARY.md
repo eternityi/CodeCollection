@@ -24,6 +24,7 @@
 * [Allocation and Initialization](ios/allocation-and-initialization.md)
 * [MobileGestalt](ios/mobilegestalt.md)
 * [iOS设备的唯一标识](ios/ios-she-bei-de-wei-yi-biao-shi.md)
+* [iOS多线程编程（一）多线程基础](ios/ios-duo-xian-cheng-bian-cheng-yi-duo-xian-cheng-ji-chu.md)
 
 ## App Architecture
 
