@@ -1,6 +1,6 @@
 # Java开发环境配置（macOS）
 
-本文主要介绍jdk11在macOS上的安装和环境变量的配置。
+_本文主要介绍JDK在macOS上的安装和环境变量的配置。_
 
 ## **1、JDK 安装**
 
@@ -41,26 +41,40 @@ OpenJDK Runtime Environment (build 12.0.1+12)
 OpenJDK 64-Bit Server VM (build 12.0.1+12, mixed mode, sharing)
 ```
 
-**2、JDK多个版本之间切换**
+## **2、JDK多版本间切换（手动）**
 
-安装成功Jdk11后，可能之前还有之前版本的JDK。下面看一下多版本JDK切换问题
+安装成功JDK后，可能之前还有之前版本的JDK。下面看一下多版本JDK切换问题
 
-1）查看所有JDK的在系统中默认的安装位置
+#### 1）查看所有JDK的在系统中默认的安装位置
 
-/usr/libexec/java\_home  -V  
-Matching Java Virtual Machines \(2\):  
-    11.0.1, x86\_64: "OpenJDK 11.0.1" /Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home  
-    9.0.1, x86\_64: "Java SE 9.0.1" /Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home  
+```text
+/usr/libexec/java_home  -V
+```
+
+如果有多个即显示如下：
+
+```text
+Matching Java Virtual Machines (2):
+    11.0.1, x86_64: "OpenJDK 11.0.1" /Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home
+    9.0.1, x86_64: "Java SE 9.0.1" /Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home
 /Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home
+```
 
-2）查看指定版本JDK在系统中默认安装位置
+#### 2）查看指定版本JDK在系统中默认安装位置
 
-/usr/libexec/java\_home -v 9  
+```text
+/usr/libexec/java_home -v 9
+```
+
+显示对应目录：
+
+```text
 /Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home
+```
 
-3）手动切换JDK版本
+#### 3）手动切换JDK版本
 
-通过修改 `~/.bash_profile`文件修改JAVA\_HOME，如果没有这个文件则需要新建一个。alias是自定义命令别名
+通过修改 `~/.bash_profile`文件修改JAVA\_HOME，如果没有这个文件则需要新建一个。使用命令别名的方式alias是自定义命令别名
 
 ```text
 export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
@@ -83,15 +97,19 @@ source ~/.bash_profile
 
 切换JDK版本就执行对应命令别名，比如，我要切换成JDK9，就执行一下java9就可以了。
 
-**3、用JEnv来切换JDK版本**
+## **3、JDK多版本间切换（工具）**
 
-1）安装JEnv
+可以使用JEnv进行切换
+
+#### 1）安装JEnv（Homebrew）
 
 ```text
  brew install jenv
 ```
 
-2）配置JEnv环境变量
+#### 2）配置JEnv环境变量
+
+bash配置中添加
 
 ```text
 echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.bash_profile \
@@ -99,26 +117,29 @@ echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.bash_profile \
 &&source ~/.bash_profile
 ```
 
-报这个错`(ln: /Users/levizhong/.jenv/versions/oracle64-9.0.1: No such file or directory`或`ln: /Users/levizhong/.jenv/versions/openjdk64-11.0.1: No such file or directory)`，就是没有配置JEnv环境变量
+报这个错`(ln: /Users/levizhong/.jenv/versions/oracle64-9.0.1: No such file or directory`或`ln: /Users/levizhong/.jenv/versions/openjdk64-11.0.1: No such file or directory)`
 
-3）查看JEnv管理所有的JDK版本
+就是没有配置JEnv环境变量
+
+#### 3）查看JEnv管理所有的JDK版本
 
 ```text
 jenv versions
 ```
 
-例如，
+显示：
 
-levideMacBook-Pro:cjavapy levizhong$ jenv versions  
-\* system \(set by /Users/levizhong/.jenv/version\)  
-  11.0  
-  11.0.1  
-  9.0  
-  9.0.1  
-  openjdk64-11.0.1  
+```text
+* system (set by /Users/levizhong/.jenv/version)
+  11.0
+  11.0.1
+  9.0
+  9.0.1
+  openjdk64-11.0.1
   oracle64-9.0.1
+```
 
-4）切换成想要使用的JDK版
+#### 4）切换成想要使用的JDK版
 
 ```text
 jenv global 11.0
@@ -126,9 +147,9 @@ jenv global 11.0
 
 更多Jenv命令请看jenv相关文档：[JEnv docs](https://github.com/gcuisinier/jenv/wiki)
 
-5）其它类似工具
+#### 5）其它类似工具
 
-SDKMAN：有点不同，可以处理安装和切换不同的JDK版本。但会将已安装的JDK放入其自己的目录中，这通常是`~/.sdkman/candidates/java`。SDKMAN允许设置全局默认版本以及特定于当前shell的版本。使用文档：[https://sdkman.io/usage](https://sdkman.io/usage)
+SDKMAN：类似nvm工具，可以处理安装和切换不同的JDK版本。但会将已安装的JDK放入其自己的目录中，这通常是`~/.sdkman/candidates/java`。SDKMAN允许设置全局默认版本以及特定于当前shell的版本。使用文档：[https://sdkman.io/usage](https://sdkman.io/usage)
 
 Jabba：可以安装和切换不同版本JDK。Jabba也是将已安装的JDK放入其自己的目录中，这通常是~/.jabba/jdk，使用文档：[https://github.com/shyiko/jabba\#usage](https://github.com/shyiko/jabba#usage)
 
