@@ -26,7 +26,7 @@
 * [iOS设备的唯一标识](ios/ios-she-bei-de-wei-yi-biao-shi.md)
 * [iOS多线程编程（一）多线程基础](ios/ios-duo-xian-cheng-bian-cheng-yi-duo-xian-cheng-ji-chu.md)
 * [iOS多线程编程（二）底层线程操作](ios/ios-duo-xian-cheng-bian-cheng-er-di-ceng-xian-cheng-cao-zuo.md)
-* [iOS多线程编程（四）NSThread](ios/ios-duo-xian-cheng-bian-cheng-si-nsthread.md)
+* [iOS多线程编程（三）NSThread](ios/ios-duo-xian-cheng-bian-cheng-si-nsthread.md)
 
 ## App Architecture
 
