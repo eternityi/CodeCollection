@@ -52,4 +52,5 @@
 ## Dev-Tools
 
 * [Mac 设置指南](dev-tools/mac-she-zhi-zhi-nan.md)
+* [Java开发环境配置（macOS）](dev-tools/java-kai-fa-huan-jing-pei-zhi-macos.md)
 
