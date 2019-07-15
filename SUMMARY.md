@@ -23,6 +23,7 @@
 * [Protocol](ios/protocol.md)
 * [Allocation and Initialization](ios/allocation-and-initialization.md)
 * [MobileGestalt](ios/mobilegestalt.md)
+* [iOS设备的唯一标识](ios/ios-she-bei-de-wei-yi-biao-shi.md)
 
 ## App Architecture
 
