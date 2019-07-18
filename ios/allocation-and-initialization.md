@@ -1,4 +1,4 @@
-# Allocation and Initialization
+# Objective-C语言基础（Allocation & Initialization）
 
 It takes two steps to create an object in Objective-C. You must both:
 
