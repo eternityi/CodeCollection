@@ -7,6 +7,7 @@
 * [代码面试](interview/untitled.md)
 * [数据结构](interview/untitled-1.md)
 * [iOS 面试题](interview/ios-mian-shi-ti.md)
+* [App Developer Skills](interview/app-developer-skills.md)
 
 ## macOS
 
