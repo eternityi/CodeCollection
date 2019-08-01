@@ -50,6 +50,7 @@
 ## Git
 
 * [Git 的基础命令](git/git-de-ji-chu-ming-ling.md)
+* [以普通用户启动的Vim如何保存需要root权限的文件](git/yi-pu-tong-yong-hu-qi-dong-de-vim-ru-he-bao-cun-xu-yao-root-quan-xian-de-wen-jian.md)
 
 ## PHP
 
