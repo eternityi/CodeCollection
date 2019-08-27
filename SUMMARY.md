@@ -13,6 +13,8 @@
 
 * [数据结构与算法（Python）](suan-fa-python-miao-shu/shu-ju-jie-gou-yu-suan-fa-python.md)
 * [绪论](suan-fa-python-miao-shu/xu-lun.md)
+* [数据结构](suan-fa-python-miao-shu/shu-ju-jie-gou.md)
+* [顺序表](suan-fa-python-miao-shu/shun-xu-biao.md)
 
 ## macOS
 
