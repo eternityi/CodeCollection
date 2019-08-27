@@ -9,6 +9,11 @@
 * [iOS 面试题](interview/ios-mian-shi-ti.md)
 * [App Developer Skills](interview/app-developer-skills.md)
 
+## 算法（Python描述）
+
+* [数据结构与算法（Python）](suan-fa-python-miao-shu/shu-ju-jie-gou-yu-suan-fa-python.md)
+* [绪论](suan-fa-python-miao-shu/xu-lun.md)
+
 ## macOS
 
 * [Safari 阅读列表](macos/safari-yue-du-lie-biao.md)
@@ -60,9 +65,4 @@
 
 * [Mac 设置指南](dev-tools/mac-she-zhi-zhi-nan.md)
 * [Java开发环境配置（macOS）](dev-tools/java-kai-fa-huan-jing-pei-zhi-macos.md)
-
-## 算法（Python描述）
-
-* [数据结构与算法（Python）](suan-fa-python-miao-shu/shu-ju-jie-gou-yu-suan-fa-python.md)
-* [绪论](suan-fa-python-miao-shu/xu-lun.md)
 
