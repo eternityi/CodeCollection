@@ -6,55 +6,53 @@
 
 #### 创建并启动
 
-* 先创建线程类，再启动
+*   先创建线程类，再启动
 
-  **OBJECTIVE-C**
+    **OBJECTIVE-C**
 
-  ```text
-    // 创建
-    NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(run:) object:nil];
+    ```
+      // 创建
+      NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(run:) object:nil];
 
-    // 启动
-    [thread start];
-  ```
+      // 启动
+      [thread start];
+    ```
 
-  **SWIFT**
+    **SWIFT**
 
-  ```text
-    //创建
-    let thread = NSThread(target: self, selector: "run:", object: nil)
+    ```
+      //创建
+      let thread = NSThread(target: self, selector: "run:", object: nil)
 
-    //启动
-    thread.start()
-  ```
+      //启动
+      thread.start()
+    ```
+*   创建并自动启动
 
-* 创建并自动启动
+    **OBJECTIVE-C**
 
-  **OBJECTIVE-C**
+    ```
+      [NSThread detachNewThreadSelector:@selector(run:) toTarget:self withObject:nil];
+    ```
 
-  ```text
-    [NSThread detachNewThreadSelector:@selector(run:) toTarget:self withObject:nil];
-  ```
+    **SWIFT**
 
-  **SWIFT**
+    ```
+      NSThread.detachNewThreadSelector("run:", toTarget: self, withObject: nil)
+    ```
+*   使用 NSObject 的方法创建并自动启动
 
-  ```text
-    NSThread.detachNewThreadSelector("run:", toTarget: self, withObject: nil)
-  ```
+    **OBJECTIVE-C**
 
-* 使用 NSObject 的方法创建并自动启动
+    ```
+      [self performSelectorInBackground:@selector(run:) withObject:nil];
+    ```
 
-  **OBJECTIVE-C**
+    **SWIFT**
 
-  ```text
-    [self performSelectorInBackground:@selector(run:) withObject:nil];
-  ```
+    很遗憾 too! 苹果认为 `performSelector:`不安全，所以在 Swift 去掉了这个方法。
 
-  **SWIFT**
-
-  很遗憾 too! 苹果认为 `performSelector:`不安全，所以在 Swift 去掉了这个方法。
-
-  > Note: The performSelector: method and related selector-invoking methods are not imported in Swift because they are inherently unsafe.
+    > Note: The performSelector: method and related selector-invoking methods are not imported in Swift because they are inherently unsafe.
 
 #### 其他方法
 
@@ -62,7 +60,7 @@
 
 **OBJECTIVE-C**
 
-```text
+```
 //取消线程
 - (void)cancel;
 
@@ -93,6 +91,4 @@
 
 Swift的方法名字和OC的方法名都一样，我就不浪费空间列举出来了。
 
-其实，NSThread 用起来也挺简单的，因为它就那几种方法。同时，我们也只有在一些非常简单的场景才会用 NSThread, 毕竟它还不够智能，不能优雅地处理多线程中的其他高级概念。所以接下来要说的内容才是重点。  
-
-
+其实，NSThread 用起来也挺简单的，因为它就那几种方法。同时，我们也只有在一些非常简单的场景才会用 NSThread, 毕竟它还不够智能，不能优雅地处理多线程中的其他高级概念。所以接下来要说的内容才是重点。\

@@ -1,22 +1,22 @@
 # 函数式编程初探
 
-下面是我的"函数式编程"学习笔记，分享出来，与大家一起探讨。内容不涉及数学（我也不懂[Lambda Calculus](http://en.wikipedia.org/wiki/Lambda_calculus)），也不涉及高级特性（比如[lazy evaluation](http://en.wikipedia.org/wiki/Lazy_evaluation)和[currying](http://en.wikipedia.org/wiki/Currying)），只求尽量简单通俗地整理和表达，我现在所理解的"函数式编程"以及它的意义。
+下面是我的"函数式编程"学习笔记，分享出来，与大家一起探讨。内容不涉及数学（我也不懂[Lambda Calculus](http://en.wikipedia.org/wiki/Lambda\_calculus)），也不涉及高级特性（比如[lazy evaluation](http://en.wikipedia.org/wiki/Lazy\_evaluation)和[currying](http://en.wikipedia.org/wiki/Currying)），只求尽量简单通俗地整理和表达，我现在所理解的"函数式编程"以及它的意义。
 
 我主要参考了Slava Akhmechet的[_"Functional Programming For The Rest of Us"_](http://www.defmacro.org/ramblings/fp.html)。
 
 **一、定义**
 
-简单说，"函数式编程"是一种["编程范式"](http://en.wikipedia.org/wiki/Programming_paradigm)（programming paradigm），也就是如何编写程序的方法论。
+简单说，"函数式编程"是一种["编程范式"](http://en.wikipedia.org/wiki/Programming\_paradigm)（programming paradigm），也就是如何编写程序的方法论。
 
-它属于["结构化编程"](http://en.wikipedia.org/wiki/Structured_programming)的一种，主要思想是把运算过程尽量写成一系列嵌套的函数调用。举例来说，现在有这样一个数学表达式：
+它属于["结构化编程"](http://en.wikipedia.org/wiki/Structured\_programming)的一种，主要思想是把运算过程尽量写成一系列嵌套的函数调用。举例来说，现在有这样一个数学表达式：
 
-```text
+```
 (1 + 2) * 3 - 4
 ```
 
 传统的过程式编程，可能这样写：
 
-```text
+```
 　　var a = 1 + 2;
 　　var b = a * 3;
 　　var c = b - 4;
@@ -24,7 +24,7 @@
 
 函数式编程要求使用函数，我们可以把运算过程[定义](http://lostechies.com/derickbailey/2012/01/24/some-thoughts-on-functional-javascript/)为不同的函数，然后写成下面这样：
 
-```text
+```
 var result = subtract(multiply(add(1,2), 3), 4);
 ```
 
@@ -36,11 +36,11 @@ var result = subtract(multiply(add(1,2), 3), 4);
 
 **1. 函数是"第一等公民"**
 
-所谓["第一等公民"](http://en.wikipedia.org/wiki/First-class_function)（first class），指的是函数与其他数据类型一样，处于平等地位，可以赋值给其他变量，也可以作为参数，传入另一个函数，或者作为别的函数的返回值。
+所谓["第一等公民"](http://en.wikipedia.org/wiki/First-class\_function)（first class），指的是函数与其他数据类型一样，处于平等地位，可以赋值给其他变量，也可以作为参数，传入另一个函数，或者作为别的函数的返回值。
 
 举例来说，下面代码中的print变量就是一个函数，可以作为另一个函数的参数。
 
-```text
+```
 var print = function(i){ console.log(i);};
 
 [1,2,3].forEach(print);
@@ -56,7 +56,7 @@ var print = function(i){ console.log(i);};
 
 **3. 没有"副作用"**
 
-所谓["副作用"](http://en.wikipedia.org/wiki/Side_effect_%28computer_science%29)（side effect），指的是函数内部与外部互动（最典型的情况，就是修改全局变量的值），产生运算以外的其他结果。
+所谓["副作用"](http://en.wikipedia.org/wiki/Side\_effect\_\(computer\_science\))（side effect），指的是函数内部与外部互动（最典型的情况，就是修改全局变量的值），产生运算以外的其他结果。
 
 函数式编程强调没有"副作用"，意味着函数要保持独立，所有功能就是返回一个新的值，没有其他行为，尤其是不得修改外部变量的值。
 
@@ -66,7 +66,7 @@ var print = function(i){ console.log(i);};
 
 在其他类型的语言中，变量往往用来保存"状态"（state）。不修改变量，意味着状态不能保存在变量中。函数式编程使用参数保存状态，最好的例子就是递归。下面的代码是一个将字符串逆序排列的函数，它演示了不同的参数如何决定了运算所处的"状态"。
 
-```text
+```
 　　function reverse(string) {
 　　　　if(string.length == 0) {
 　　　　　　return string;
@@ -92,7 +92,7 @@ var print = function(i){ console.log(i);};
 
 函数式编程大量使用函数，减少了代码的重复，因此程序比较短，开发速度较快。
 
-Paul Graham在[《黑客与画家》](http://www.ruanyifeng.com/docs/pg/)一书中[写道](http://www.ruanyifeng.com/blog/2010/10/why_lisp_is_superior.html)：同样功能的程序，极端情况下，Lisp代码的长度可能是C代码的二十分之一。
+Paul Graham在[《黑客与画家》](http://www.ruanyifeng.com/docs/pg/)一书中[写道](http://www.ruanyifeng.com/blog/2010/10/why\_lisp\_is\_superior.html)：同样功能的程序，极端情况下，Lisp代码的长度可能是C代码的二十分之一。
 
 如果程序员每天所写的代码行数基本相同，这就意味着，"C语言需要一年时间完成开发某个功能，Lisp语言只需要不到三星期。反过来说，如果某个新功能，Lisp语言完成开发需要三个月，C语言需要写五年。"当然，这样的对比故意夸大了差异，但是"在一个高度竞争的市场中，即使开发速度只相差两三倍，也足以使得你永远处在落后的位置。"
 
@@ -100,21 +100,21 @@ Paul Graham在[《黑客与画家》](http://www.ruanyifeng.com/docs/pg/)一书�
 
 函数式编程的自由度很高，可以写出很接近自然语言的代码。
 
-前文曾经将表达式\(1 + 2\) \* 3 - 4，写成函数式语言：
+前文曾经将表达式(1 + 2) \* 3 - 4，写成函数式语言：
 
-```text
+```
 subtract(multiply(add(1,2), 3), 4)
 ```
 
 对它进行变形，不难得到另一种写法：
 
-```text
+```
 add(1,2).multiply(3).subtract(4)
 ```
 
 这基本就是自然语言的表达了。再看下面的代码，大家应该一眼就能明白它的意思吧：
 
-```text
+```
 merge([1,2],[3,4]).sort().search("2")
 ```
 
@@ -142,8 +142,6 @@ merge([1,2],[3,4]).sort().search("2")
 
 **5. 代码的热升级**
 
-函数式编程没有副作用，只要保证接口不变，内部实现是外部无关的。所以，可以在运行状态下直接升级代码，不需要重启，也不需要停机。[Erlang](http://en.wikipedia.org/wiki/Erlang_%28programming_language%29)语言早就证明了这一点，它是瑞典爱立信公司为了管理电话系统而开发的，电话系统的升级当然是不能停机的。
+函数式编程没有副作用，只要保证接口不变，内部实现是外部无关的。所以，可以在运行状态下直接升级代码，不需要重启，也不需要停机。[Erlang](http://en.wikipedia.org/wiki/Erlang\_\(programming\_language\))语言早就证明了这一点，它是瑞典爱立信公司为了管理电话系统而开发的，电话系统的升级当然是不能停机的。
 
-（完）  
-
-
+（完）\

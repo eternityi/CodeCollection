@@ -9,8 +9,10 @@
 ### **1. 协同办公和生产力工具**
 
 * 邮箱：推荐 Gmail （Google Apps），但是现在免费版只能有10个用户，QQ企业邮箱之类的也可以用。
-* Dropbox: [https://www.dropbox.com/](https://link.zhihu.com/?target=https%3A//www.dropbox.com/) 太有名了，不用多介绍，安全可靠 
-* 其他各种网盘：金山、百度、360，竞争正激烈 
+* Dropbox: [https://www.dropbox.com/](https://link.zhihu.com/?target=https%3A//www.dropbox.com/) 太有名了，不用多介绍，安全可靠\
+
+* 其他各种网盘：金山、百度、360，竞争正激烈\
+
 * Google Docs: 在协同与分享方面很好用。国内如果想稳定的用的话，需要一些技术手段，不过对互联网创业团队应该不是问题。
 * Trello：[http://trello.com/](https://link.zhihu.com/?target=http%3A//trello.com/) 小型项目管理和协同等都够用了。
 * Asana：[http://asana.com/](https://link.zhihu.com/?target=http%3A//asana.com/) 15个人以内可以免费用
@@ -20,9 +22,10 @@
 ### **2. 招聘**
 
 * 拉勾网：[http://www.lagou.com/](https://link.zhihu.com/?target=http%3A//www.lagou.com/) 专门面向互联网领域的招聘网站
-* 水木社区：[http://www.newsmth.net/nForum/\#!board/Career\_Upgrade?p=1](https://link.zhihu.com/?target=http%3A//www.newsmth.net/nForum/%23%21board/Career_Upgrade%3Fp%3D1) 发帖比较管用
-* 北邮人bbs：[http://bbs.byr.cn/\#!board/JobInfo](https://link.zhihu.com/?target=http%3A//bbs.byr.cn/%23%21board/JobInfo) 互联网行业发帖比较管用
-* cocoachina：[http://www.cocoachina.com/bbs/thread.php?fid-26.html](https://link.zhihu.com/?target=http%3A//www.cocoachina.com/bbs/thread.php%3Ffid-26.html) 
+* 水木社区：[http://www.newsmth.net/nForum/#!board/Career\_Upgrade?p=1](https://link.zhihu.com/?target=http%3A//www.newsmth.net/nForum/%23%21board/Career\_Upgrade%3Fp%3D1) 发帖比较管用
+* 北邮人bbs：[http://bbs.byr.cn/#!board/JobInfo](https://link.zhihu.com/?target=http%3A//bbs.byr.cn/%23%21board/JobInfo) 互联网行业发帖比较管用
+* cocoachina：[http://www.cocoachina.com/bbs/thread.php?fid-26.html](https://link.zhihu.com/?target=http%3A//www.cocoachina.com/bbs/thread.php%3Ffid-26.html)\
+
 * eoe：[http://zhaopin.eoe.cn/](https://link.zhihu.com/?target=http%3A//zhaopin.eoe.cn/)
 
 招聘是创业公司的重要工作，找到合适的人很难，但这也是成功的关键之一。关于人才的标准，之前写过一篇文章：[http://zhihu.com/question/21386637/answer/18478678](http://zhihu.com/question/21386637/answer/18478678) ，以及如何面试产品经理和设计师 [http://tiyanzhimei.com/index.php/mianshipm/](https://link.zhihu.com/?target=http%3A//tiyanzhimei.com/index.php/mianshipm/)
@@ -36,8 +39,8 @@
 * [iOS 7 人机界面指南（界面设计基础部分）ISUX原创翻译](https://link.zhihu.com/?target=http%3A//url.cn/FD0ztE)
 * [iOS 人机界面设计指南](https://link.zhihu.com/?target=http%3A//url.cn/FD0ztE)[ Apple 官方版本](https://link.zhihu.com/?target=http%3A//url.cn/FD0ztE)
 * [iPad 人机界面设计指南](https://link.zhihu.com/?target=http%3A//developer.apple.com/library/ios/%23documentation/general/conceptual/ipadhig/Introduction/Introduction.html) Apple 官方版本
-* [Android 用户界面设计规范](https://link.zhihu.com/?target=http%3A//developer.android.com/guide/practices/ui_guidelines/index.html) Google 官方版本
-* [Android 4.0 设计规范中文版](https://link.zhihu.com/?target=https%3A//www.google.com.hk/url%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D1%26ved%3D0CDEQFjAA%26url%3D%2568%2574%2574%2570%253a%252f%252f%256d%2575%256f%2575%252e%2567%256f%256f%2567%256c%2565%2563%256f%2564%2565%252e%2563%256f%256d%252f%2566%2569%256c%2565%2573%252f%2541%256e%2564%2572%256f%2569%2564%252d%2544%2565%2573%2569%2567%256e%252d%2534%252e%2530%252e%2570%2564%2566%26ei%3DvMd_UaD6HcnFkQXXnYCYDg%26usg%3DAFQjCNFe00cPB9b290-EhODZlKjh_dxP1w) 腾讯 CDC 翻译
+* [Android 用户界面设计规范](https://link.zhihu.com/?target=http%3A//developer.android.com/guide/practices/ui\_guidelines/index.html) Google 官方版本
+* [Android 4.0 设计规范中文版](https://link.zhihu.com/?target=https%3A//www.google.com.hk/url%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dweb%26cd%3D1%26ved%3D0CDEQFjAA%26url%3D%2568%2574%2574%2570%253a%252f%252f%256d%2575%256f%2575%252e%2567%256f%256f%2567%256c%2565%2563%256f%2564%2565%252e%2563%256f%256d%252f%2566%2569%256c%2565%2573%252f%2541%256e%2564%2572%256f%2569%2564%252d%2544%2565%2573%2569%2567%256e%252d%2534%252e%2530%252e%2570%2564%2566%26ei%3DvMd\_UaD6HcnFkQXXnYCYDg%26usg%3DAFQjCNFe00cPB9b290-EhODZlKjh\_dxP1w) 腾讯 CDC 翻译
 * [Windows Phone 界面设计规范中文版](https://link.zhihu.com/?target=http%3A//msdn.microsoft.com/zh-cn/library/windowsphone/design/hh202915%28v%3Dvs.92%29.aspx) 微软官方中文版
 
 很多创业者的问题都是以为用户体验就是花花绿绿，就是几个漂亮图标，其实不是这样。用户体验是一个整体。知乎上也有非常多的用户体验讨论，特别是有一线的产品经理和设计师分享的经验，很值得刚刚开始动手的创业者看看。其它用户体验相关的资源（图片、图标、），详见： [http://hao.brixd.com/](https://link.zhihu.com/?target=http%3A//hao.brixd.com)
@@ -54,7 +57,7 @@
 **4.2 App 社会分享**
 
 * ShareSDK：[http://sharesdk.cn/](https://link.zhihu.com/?target=http%3A//sharesdk.cn/)
-* 友盟社会分享：[http://www.umeng.com/component\_social](https://link.zhihu.com/?target=http%3A//www.umeng.com/component_social)
+* 友盟社会分享：[http://www.umeng.com/component\_social](https://link.zhihu.com/?target=http%3A//www.umeng.com/component\_social)
 
 UI 方面 ShareSDK 感觉更好一些，不过都可以定制。
 
@@ -68,7 +71,7 @@ Android 平台使用第三方推送服务是一个不错的选择。
 
 **4.4 用户反馈**
 
-* 友盟用户反馈：[http://www.umeng.com/component\_feedback](https://link.zhihu.com/?target=http%3A//www.umeng.com/component_feedback) 友盟的用户反馈可以在 App 内实现用户与客服的交流。
+* 友盟用户反馈：[http://www.umeng.com/component\_feedback](https://link.zhihu.com/?target=http%3A//www.umeng.com/component\_feedback) 友盟的用户反馈可以在 App 内实现用户与客服的交流。
 * Zendesk：[http://zendesk.com](https://link.zhihu.com/?target=http%3A//zendesk.com/) 需付费使用。
 
 **4.5 问卷调查**
@@ -80,14 +83,16 @@ Android 平台使用第三方推送服务是一个不错的选择。
 
 * 阿里测：[http://www.alibench.com/](https://link.zhihu.com/?target=http%3A//www.alibench.com/)
 
-**4.7 应用发布**  
+**4.7 应用发布**\
 
 
-* 各种商店和分发平台，如360、豌豆荚等 
-* 酷传：[http://www.coolchuan.com/](https://link.zhihu.com/?target=http%3A//www.coolchuan.com/) 一键发布app到34家软件商店 
-* 足够好的应用，可以自荐给最美应用，邮箱：open\#[http://brixd.com](https://link.zhihu.com/?target=http%3A//brixd.com) （替换\#为@）
+* 各种商店和分发平台，如360、豌豆荚等\
 
-**5. 云服务**  
+* 酷传：[http://www.coolchuan.com/](https://link.zhihu.com/?target=http%3A//www.coolchuan.com/) 一键发布app到34家软件商店\
+
+* 足够好的应用，可以自荐给最美应用，邮箱：open#[http://brixd.com](https://link.zhihu.com/?target=http%3A//brixd.com) （替换#为@）
+
+**5. 云服务**\
 
 
 **5.1 云存储**
@@ -121,23 +126,26 @@ Android 平台使用第三方推送服务是一个不错的选择。
 
 * Github：[http://github.com/](https://link.zhihu.com/?target=http%3A//github.com/)
 * Gitlab：[http://gitlab.org/](https://link.zhihu.com/?target=http%3A//gitlab.org/)
-* Jenkins：[http://jenkins-ci.org/](https://link.zhihu.com/?target=http%3A//jenkins-ci.org/) 自动更新最新代码,并打包和部署 
+* Jenkins：[http://jenkins-ci.org/](https://link.zhihu.com/?target=http%3A//jenkins-ci.org/) 自动更新最新代码,并打包和部署\
+
 * SVN：[http://www.visualsvn.com/visualsvn/](https://link.zhihu.com/?target=http%3A//www.visualsvn.com/visualsvn/)
 
 **6.2 Code Review**
 
 * Review Board：[http://www.reviewboard.org/](https://link.zhihu.com/?target=http%3A//www.reviewboard.org/)
 
-**6.3 Bug 管理**  
-
+**6.3 Bug 管理**\
+****
 
 * Redmine：[http://www.redmine.org/](https://link.zhihu.com/?target=http%3A//www.redmine.org/) 开源的 Bug 管理工具
-* MantisBT：[http://www.mantisbt.org/](https://link.zhihu.com/?target=http%3A//www.mantisbt.org/) 网友推荐 
+* MantisBT：[http://www.mantisbt.org/](https://link.zhihu.com/?target=http%3A//www.mantisbt.org/) 网友推荐\
+
 
 **6.4 其他有用的工具**
 
 * 花生壳动态域名：[http://www.oray.com/](https://link.zhihu.com/?target=http%3A//www.oray.com/) 好吧，还可以方便远程调试代码
-* VMware-exsi：硬件虚拟平台免费版 
+* VMware-exsi：硬件虚拟平台免费版\
+
 
 ### **7. 更多资源**
 
@@ -151,10 +159,10 @@ Android 平台使用第三方推送服务是一个不错的选择。
 * ITeye：[http://iteye.com](https://link.zhihu.com/?target=http%3A//iteye.com/)
 * 开源中国：[http://oschina.net/](https://link.zhihu.com/?target=http%3A//oschina.net/)
 * Html5：[http://html5cn.org/](https://link.zhihu.com/?target=http%3A//html5cn.org/)
-* 开源中国开源项目列表：[http://www.oschina.net/project/](https://link.zhihu.com/?target=http%3A//www.oschina.net/project/) 用好开源，省时省力 
+* 开源中国开源项目列表：[http://www.oschina.net/project/](https://link.zhihu.com/?target=http%3A//www.oschina.net/project/) 用好开源，省时省力\
+
 * WordPress：[http://wordpress.com/](https://link.zhihu.com/?target=http%3A//wordpress.com/) 快速搭起网站
 
 ### **8. 融资 & 法务**
 
-* [Raymond Wang](http://www.zhihu.com/people/raymond-wang): Raymond 是非常专业的律师，律所合伙人，担任多家创业公司的法务顾问，投融资时的法务问题可以找他。 
-
+* [Raymond Wang](http://www.zhihu.com/people/raymond-wang): Raymond 是非常专业的律师，律所合伙人，担任多家创业公司的法务顾问，投融资时的法务问题可以找他。\

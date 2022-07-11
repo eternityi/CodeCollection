@@ -26,8 +26,7 @@ PHP 生成MD5签名 并 测试可用性的代码
 
 里面只写了md5的程序，rsa的略。
 
-{% code-tabs %}
-{% code-tabs-item title="md5\_sign.php" %}
+{% code title="md5_sign.php" %}
 ```php
 <?php
 /**
@@ -144,13 +143,11 @@ class Submit{
     }
 }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 测试数据：
 
-{% code-tabs %}
-{% code-tabs-item title="md5\_test\_data.php" %}
+{% code title="md5_test_data.php" %}
 ```php
 //1.准备要提交的字符串
 $para_token = array(
@@ -187,6 +184,4 @@ $return = array(
         echo "验证失败";
     }
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
+{% endcode %}

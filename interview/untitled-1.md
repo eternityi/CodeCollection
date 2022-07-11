@@ -12,7 +12,7 @@ description: >-
 
 ### 什么是数据结构？
 
-数据结构是计算机存储、组织数据的方式。对于特定的数据结构\(比如数组\)，有些操作效率很高\(读某个数组元素\)，有些操作的效率很低\(删除某个数组元素\)。程序员的目标是为当前的问题选择最优的数据结构。
+数据结构是计算机存储、组织数据的方式。对于特定的数据结构(比如数组)，有些操作效率很高(读某个数组元素)，有些操作的效率很低(删除某个数组元素)。程序员的目标是为当前的问题选择最优的数据结构。
 
 ### **为什么我们需要数据结构？**
 
@@ -22,16 +22,16 @@ description: >-
 
 #### 1. 数组
 
-**数组\(Array\)**大概是最简单，也是最常用的数据结构了。其他数据结构，比如栈和队列都是由数组衍生出来的。
+**数组(Array)**大概是最简单，也是最常用的数据结构了。其他数据结构，比如栈和队列都是由数组衍生出来的。
 
-下图展示了1个数组，它有4个元素：![](file:///Users/qing/Library/Containers/com.readitlater.PocketMac/Data/Library/Application%20Support/Pocket/offline/cache1/RIL_assets/kiwenlau.com/2018/08/27/code-interview-data-structure/array_580-0.jpg)
+下图展示了1个数组，它有4个元素：![](file:///Users/qing/Library/Containers/com.readitlater.PocketMac/Data/Library/Application%20Support/Pocket/offline/cache1/RIL\_assets/kiwenlau.com/2018/08/27/code-interview-data-structure/array\_580-0.jpg)
 
-每一个数组元素的位置由数字编号，称为下标或者索引\(index\)。大多数编程语言的数组第一个元素的下标是0。
+每一个数组元素的位置由数字编号，称为下标或者索引(index)。大多数编程语言的数组第一个元素的下标是0。
 
 根据维度区分，有2种不同的数组：
 
-* 一维数组\(如上图所示\)
-* 多维数组\(数组的元素为数组\)
+* 一维数组(如上图所示)
+* 多维数组(数组的元素为数组)
 
 **数组的基本操作**
 
@@ -49,11 +49,11 @@ description: >-
 
 #### 2. 栈
 
-撤回，即Ctrl+Z，是我们最常见的操作之一，大多数应用都会支持这个功能。你知道它是怎么实现的吗？答案是这样的：把之前的应用状态\(限制个数\)保存到内存中，最近的状态放到第一个。这时，我们需要**栈\(stack\)**来实现这个功能。
+撤回，即Ctrl+Z，是我们最常见的操作之一，大多数应用都会支持这个功能。你知道它是怎么实现的吗？答案是这样的：把之前的应用状态(限制个数)保存到内存中，最近的状态放到第一个。这时，我们需要**栈(stack)**来实现这个功能。
 
-栈中的元素采用LIFO \(Last In First Out\)，即**后进先出**。
+栈中的元素采用LIFO (Last In First Out)，即**后进先出**。
 
-下图的栈有3个元素，3在最上面，因此它会被第一个移除：![](file:///Users/qing/Library/Containers/com.readitlater.PocketMac/Data/Library/Application%20Support/Pocket/offline/cache1/RIL_assets/kiwenlau.com/2018/08/27/code-interview-data-structure/stack_580-0.jpg)
+下图的栈有3个元素，3在最上面，因此它会被第一个移除：![](file:///Users/qing/Library/Containers/com.readitlater.PocketMac/Data/Library/Application%20Support/Pocket/offline/cache1/RIL\_assets/kiwenlau.com/2018/08/27/code-interview-data-structure/stack\_580-0.jpg)
 
 **栈的基本操作**
 
@@ -70,9 +70,9 @@ description: >-
 
 #### 3. 队列
 
-**队列\(Queue\)**与栈类似，都是采用线性结构存储数据。它们的区别在于，栈采用LIFO方式，而队列采用先进先出，即**FIFO\(First in First Out\)**。
+**队列(Queue)**与栈类似，都是采用线性结构存储数据。它们的区别在于，栈采用LIFO方式，而队列采用先进先出，即**FIFO(First in First Out)**。
 
-下图展示了一个队列，1是最上面的元素，它会被第一个移除：![](file:///Users/qing/Library/Containers/com.readitlater.PocketMac/Data/Library/Application%20Support/Pocket/offline/cache1/RIL_assets/kiwenlau.com/2018/08/27/code-interview-data-structure/queue_580-0.jpg)
+下图展示了一个队列，1是最上面的元素，它会被第一个移除：![](file:///Users/qing/Library/Containers/com.readitlater.PocketMac/Data/Library/Application%20Support/Pocket/offline/cache1/RIL\_assets/kiwenlau.com/2018/08/27/code-interview-data-structure/queue\_580-0.jpg)
 
 **队列的基本操作**
 
@@ -89,13 +89,13 @@ description: >-
 
 #### 4. 链表
 
-**链表\(Linked List\)**也是线性结构，它与数组看起来非常像，但是它们的内存分配方式、内部结构和插入删除操作方式都不一样。
+**链表(Linked List)**也是线性结构，它与数组看起来非常像，但是它们的内存分配方式、内部结构和插入删除操作方式都不一样。
 
 链表是一系列节点组成的链，每一个节点保存了数据以及指向下一个节点的指针。链表头指针指向第一个节点，如果链表为空，则头指针为空或者为null。
 
 链表可以用来实现文件系统、哈希表和邻接表。
 
-下图展示了一个链表，它有3个节点：![](file:///Users/qing/Library/Containers/com.readitlater.PocketMac/Data/Library/Application%20Support/Pocket/offline/cache1/RIL_assets/kiwenlau.com/2018/08/27/code-interview-data-structure/linked_list_580-0.jpg)
+下图展示了一个链表，它有3个节点：![](file:///Users/qing/Library/Containers/com.readitlater.PocketMac/Data/Library/Application%20Support/Pocket/offline/cache1/RIL\_assets/kiwenlau.com/2018/08/27/code-interview-data-structure/linked\_list\_580-0.jpg)
 
 链表分为2种：
 
@@ -120,7 +120,7 @@ description: >-
 
 #### 5. 图
 
-**图\(graph\)**由多个**节点\(vertex\)**构成，节点之间阔以互相连接组成一个网络。\(x, y\)表示一条**边\(edge\)**，它表示节点x与y相连。边可能会有**权值\(weight/cost\)**。![](file:///Users/qing/Library/Containers/com.readitlater.PocketMac/Data/Library/Application%20Support/Pocket/offline/cache1/RIL_assets/kiwenlau.com/2018/08/27/code-interview-data-structure/graph_580-0.jpg)
+**图(graph)**由多个**节点(vertex)**构成，节点之间阔以互相连接组成一个网络。(x, y)表示一条**边(edge)**，它表示节点x与y相连。边可能会有**权值(weight/cost)**。![](file:///Users/qing/Library/Containers/com.readitlater.PocketMac/Data/Library/Application%20Support/Pocket/offline/cache1/RIL\_assets/kiwenlau.com/2018/08/27/code-interview-data-structure/graph\_580-0.jpg)
 
 图分为两种:
 
@@ -129,13 +129,13 @@ description: >-
 
 在编程语言中，图有可能有以下两种形式表示：
 
-* 邻接矩阵\(Adjacency Matrix\)
-* 邻接表\(Adjacency List\)
+* 邻接矩阵(Adjacency Matrix)
+* 邻接表(Adjacency List)
 
 遍历图有两周算法
 
-* 广度优先搜索\(Breadth First Search\)
-* 深度优先搜索\(Depth First Search\)
+* 广度优先搜索(Breadth First Search)
+* 深度优先搜索(Depth First Search)
 
 **常见的图代码面试题**
 
@@ -147,21 +147,21 @@ description: >-
 
 #### 6. 树
 
-**树\(Tree\)**是一个分层的数据结构，由节点和连接节点的边组成。树是一种特殊的图，它与图最大的区别是没有循环。
+**树(Tree)**是一个分层的数据结构，由节点和连接节点的边组成。树是一种特殊的图，它与图最大的区别是没有循环。
 
 树被广泛应用在人工智能和一些复杂算法中，用来提供高效的存储结构。
 
-下图是一个简单的树以及与树相关的术语：![](file:///Users/qing/Library/Containers/com.readitlater.PocketMac/Data/Library/Application%20Support/Pocket/offline/cache1/RIL_assets/kiwenlau.com/2018/08/27/code-interview-data-structure/tree_580-0.jpg)
+下图是一个简单的树以及与树相关的术语：![](file:///Users/qing/Library/Containers/com.readitlater.PocketMac/Data/Library/Application%20Support/Pocket/offline/cache1/RIL\_assets/kiwenlau.com/2018/08/27/code-interview-data-structure/tree\_580-0.jpg)
 
 树有很多分类：
 
-* N叉树\(N-ary Tree\)
-* 平衡树\(Balanced Tree\)
-* 二叉树\(Binary Tree\)
-* 二叉查找树\(Binary Search Tree\)
-* 平衡二叉树\(AVL Tree\)
-* 红黑树\(Red Black Tree\)
-* 2-3树\(2–3 Tree\)
+* N叉树(N-ary Tree)
+* 平衡树(Balanced Tree)
+* 二叉树(Binary Tree)
+* 二叉查找树(Binary Search Tree)
+* 平衡二叉树(AVL Tree)
+* 红黑树(Red Black Tree)
+* 2-3树(2–3 Tree)
 
 其中，二叉树和二叉查找树是最常用的树。
 
@@ -174,9 +174,9 @@ description: >-
 
 #### 7. 前缀树
 
-**前缀树\(Prefix Trees或者Trie\)**与树类似，用于处理字符串相关的问题时非常高效。它可以实现快速检索，常用于字典中的单词查询，搜索引擎的自动补全甚至IP路由。
+**前缀树(Prefix Trees或者Trie)**与树类似，用于处理字符串相关的问题时非常高效。它可以实现快速检索，常用于字典中的单词查询，搜索引擎的自动补全甚至IP路由。
 
-下图展示了“top”, “thus”和“their”三个单词在前缀树中如何存储的：![](file:///Users/qing/Library/Containers/com.readitlater.PocketMac/Data/Library/Application%20Support/Pocket/offline/cache1/RIL_assets/kiwenlau.com/2018/08/27/code-interview-data-structure/tries_580-0.jpg)
+下图展示了“top”, “thus”和“their”三个单词在前缀树中如何存储的：![](file:///Users/qing/Library/Containers/com.readitlater.PocketMac/Data/Library/Application%20Support/Pocket/offline/cache1/RIL\_assets/kiwenlau.com/2018/08/27/code-interview-data-structure/tries\_580-0.jpg)
 
 单词是按照字母从上往下存储，“p”, “s”和“r”节点分别表示“top”, “thus”和“their”的单词结尾。
 
@@ -187,7 +187,7 @@ description: >-
 
 #### 8. 哈希表
 
-**哈希\(Hash\)**将某个对象变换为唯一标识符，该标识符通常用一个短的随机字母和数字组成的字符串来代表。哈希可以用来实现各种数据结构，其中最常用的就是**哈希表\(hash table\)**。
+**哈希(Hash)**将某个对象变换为唯一标识符，该标识符通常用一个短的随机字母和数字组成的字符串来代表。哈希可以用来实现各种数据结构，其中最常用的就是**哈希表(hash table)**。
 
 哈希表通常由数组实现。
 
@@ -197,7 +197,7 @@ description: >-
 * 哈希表的大小
 * 哈希冲突处理方式
 
-下图展示了有数组实现的哈希表，数组的下标即为哈希值，由哈希函数计算，作为哈希表的**键\(key\)**，而数组中保存的数据即为**值\(value\)**：![](file:///Users/qing/Library/Containers/com.readitlater.PocketMac/Data/Library/Application%20Support/Pocket/offline/cache1/RIL_assets/kiwenlau.com/2018/08/27/code-interview-data-structure/hash_table_580-0.jpg)  
+下图展示了有数组实现的哈希表，数组的下标即为哈希值，由哈希函数计算，作为哈希表的**键(key)**，而数组中保存的数据即为**值(value)**：![](file:///Users/qing/Library/Containers/com.readitlater.PocketMac/Data/Library/Application%20Support/Pocket/offline/cache1/RIL\_assets/kiwenlau.com/2018/08/27/code-interview-data-structure/hash\_table\_580-0.jpg)\
 
 
 **常见的哈希表代码面试题**
@@ -208,11 +208,10 @@ description: >-
 
 
 
-#### 参考 <a id="&#x53C2;&#x8003;"></a>
+#### 参考 <a href="#can-kao" id="can-kao"></a>
 
 * [Fundebug博客 - Node.js面试题之2017](https://blog.fundebug.com/2017/04/10/nodejs-interview-2017/)
-* [Fundebug博客 - 快速掌握JavaScript面试基础知识\(一\)](https://blog.fundebug.com/2018/01/15/the-definitive-javascript-handbook-for-a-developer-interview/)
-* [Fundebug博客 - 快速掌握JavaScript面试基础知识\(二\)](https://blog.fundebug.com/2018/01/22/the-definitive-javascript-handbook-for-a-developer-interview-2/)
-* [Fundebug博客 - 快速掌握JavaScript面试基础知识\(三\)](https://blog.fundebug.com/2018/01/29/the-definitive-javascript-handbook-for-a-developer-interview-3/)
+* [Fundebug博客 - 快速掌握JavaScript面试基础知识(一)](https://blog.fundebug.com/2018/01/15/the-definitive-javascript-handbook-for-a-developer-interview/)
+* [Fundebug博客 - 快速掌握JavaScript面试基础知识(二)](https://blog.fundebug.com/2018/01/22/the-definitive-javascript-handbook-for-a-developer-interview-2/)
+* [Fundebug博客 - 快速掌握JavaScript面试基础知识(三)](https://blog.fundebug.com/2018/01/29/the-definitive-javascript-handbook-for-a-developer-interview-3/)
 * [GeeksforGeeks](https://www.geeksforgeeks.org/)
-

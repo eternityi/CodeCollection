@@ -6,29 +6,29 @@
 
 苹果A系列处理器，使用的ARM架构处理器。
 
-armv6、armv7、armv7s、arm64都是ARM处理器的指令集，所有指令集原则上都是向下兼容的。如 iPhone 4s 的CPU默认指令集为armv7指令集，但它可以同时也兼容armv6的指令集，只是在使用armv6的时候无法充分发挥其性能\(无法发挥armv7指令集中的新特性\)。
+armv6、armv7、armv7s、arm64都是ARM处理器的指令集，所有指令集原则上都是向下兼容的。如 iPhone 4s 的CPU默认指令集为armv7指令集，但它可以同时也兼容armv6的指令集，只是在使用armv6的时候无法充分发挥其性能(无法发挥armv7指令集中的新特性)。
 
-在macOS上使用Xcode进行开发，往往会使用iOS模拟器，但是macOS没有运行ARM指令集，编译运行的是x86\_64指令集\(或i386\)。模拟器的作用就是使用x86\_64架构去模拟iOS设备的ARM架构。
+在macOS上使用Xcode进行开发，往往会使用iOS模拟器，但是macOS没有运行ARM指令集，编译运行的是x86\_64指令集(或i386)。模拟器的作用就是使用x86\_64架构去模拟iOS设备的ARM架构。
 
-例如，真机的指令集有以下这些：  
+例如，真机的指令集有以下这些：\
 
 
-* **armv6**: iPhone、iPhone 2、iPhone 3G、iPod Touch\(第一代\)、iPod Touch\(第二代\)       
+* **armv6**: iPhone、iPhone 2、iPhone 3G、iPod Touch(第一代)、iPod Touch(第二代)      &#x20;
 * **armv7**: iPhone 3Gs、iPhone 4、iPhone 4s、iPad、iPad 2
-* **armv7s**: iPhone 5、iPhone 5c \(静态库只要支持了armv7,就可以在armv7s的架构上运行\)
+* **armv7s**: iPhone 5、iPhone 5c (静态库只要支持了armv7,就可以在armv7s的架构上运行)
 * **arm64**: iPhone 5s、iPhone 6、iPhone 6 Plus、iPhone 6s、iPhone 6s Plus、 iPhone 7 、iPhone 7 Plus、iPad Air、iPad Air2、iPad mini2、iPad mini3、iPad mini4、iPad Pro
 
 #### **2. 在实际开发中的选择问题（Xcode设置）**
 
 在Xcode中指令集相关选项（Build Setting中）
 
-_**1）Architectures \(架构\)**_
+_**1）Architectures (架构)**_
 
-指明选定的Target要求被编译生成的二进制包所支持的指令集，而支持的指令集越多，就会编译出包含多个指令集代码的数据包，对应生成二进制包就越大，也就是ipa包会变大。![](//upload-images.jianshu.io/upload_images/1856215-992c9ea4e4c3c88c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000)
+指明选定的Target要求被编译生成的二进制包所支持的指令集，而支持的指令集越多，就会编译出包含多个指令集代码的数据包，对应生成二进制包就越大，也就是ipa包会变大。![](https://upload-images.jianshu.io/upload\_images/1856215-992c9ea4e4c3c88c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000)
 
-![Xcode - Build Settings - Architectures](../.gitbook/assets/image%20%2813%29.png)
+![Xcode - Build Settings - Architectures](<../.gitbook/assets/image (7).png>)
 
-_**2）Valid Architectures \(有效架构\)**_
+_**2）Valid Architectures (有效架构)**_
 
 限制可能被支持的指令集的范围，也就是Xcode编译出来的二进制包类型最终从这些类型产生，而**编译出哪种指令集的包，将由Architectures与Valid Architectures（因此这个不能为空）的交集**来确定。
 
@@ -48,12 +48,12 @@ _**3）Build Active Architecture Only**_
 
 而设置为no时，系统会编译所有architecture下的版本。
 
-所以，一般debug的时候可以选择设置为yes，release的时候要改为no，以适应不同设备。  
+所以，一般debug的时候可以选择设置为yes，release的时候要改为no，以适应不同设备。\
 
 
 #### **3. 生成二进制包支持的指令集**
 
-```text
+```
 第一种情况
 Architectures:  armv7, armv7s, arm64
 Valid  Architectures:  armv6, armv7s, arm64
@@ -83,9 +83,9 @@ No architectures to compile for (ONLY_ACTIVE_ARCH=YES, active arch=arm64, VALID_
 
 从上面的情况可以看出，当Build Active Architecture Only起作用时：
 
-连接的手机指令集匹配是由高到低（arm64 &gt; armv7s &gt; armv7）依次匹配的。
+连接的手机指令集匹配是由高到低（arm64 > armv7s > armv7）依次匹配的。
 
-所以当连接的手机是指令集为arm64时，若Architectures列表为armv7, armv7s，则会选取armv7s指令集为目标指令集，如果此时Valid Architectures列表中包含该指令集，则成功生成的二进制包只支持armv7s指令集，若Valid Architectures列表不包含此指令集，则编译将会出错  No architectures to compile for \(ONLY\_ACTIVE\_ARCH=YES, active arch=arm64, VALID\_ARCHS=armv7 armv7s\)
+所以当连接的手机是指令集为arm64时，若Architectures列表为armv7, armv7s，则会选取armv7s指令集为目标指令集，如果此时Valid Architectures列表中包含该指令集，则成功生成的二进制包只支持armv7s指令集，若Valid Architectures列表不包含此指令集，则编译将会出错  No architectures to compile for (ONLY\_ACTIVE\_ARCH=YES, active arch=arm64, VALID\_ARCHS=armv7 armv7s)
 
 _（使用很多静态库的时候，会遇到Undefined symbols for architecture arm\*\*\*\*的错误信息，其实就是静态库的包编译时候没有支持对应的指令集，所以可以重新编译，以生成需要的静态包）_
 
@@ -97,7 +97,7 @@ Release的App包需要去掉支持模拟器架构CPU指令集。
 
 > 由于 iOS 编译的特殊性，为了方便开发者使用，我们将 i386 x86\_64 armv7 arm64 几个平台都合并到了一起，所以使用动态库上传appstore时需要将i386 x86\_64两个平台删除后，才能正常提交审核 在SDK当前路径下执行以下命令删除i386 x86\_64两个平台 实时音视频版本Hyphenate.framework
 
-```text
+```
 lipo Hyphenate.framework/Hyphenate -thin armv7 -output Hyphenate_armv7 
 lipo Hyphenate.framework/Hyphenate -thin arm64 -output Hyphenate_arm64 
 lipo -create Hyphenate_armv7 Hyphenate_arm64 -output Hyphenate
@@ -108,9 +108,9 @@ mv Hyphenate Hyphenate.framework/
 
 先来看一下CPU的组成：
 
-![CPU&#x7EC4;&#x6210;](../.gitbook/assets/image%20%282%29.png)
+![CPU组成](<../.gitbook/assets/image (6).png>)
 
-从上面的CPU结构图片中可以看出CPU主要分为**存储单元\(SU\)**和**运算单元\(ALU\)**以及**控制单元\(CU\)**。如果将这些部件和结构映射到**VCPU**这个类时你会发现：存储单元所对应的就是里面的数据成员；而运算单元和控制单元则对应里面的所有实例方法，运算单元提供了CPU指令的实现。
+从上面的CPU结构图片中可以看出CPU主要分为**存储单元(SU)**和**运算单元(ALU)**以及**控制单元(CU)**。如果将这些部件和结构映射到**VCPU**这个类时你会发现：存储单元所对应的就是里面的数据成员；而运算单元和控制单元则对应里面的所有实例方法，运算单元提供了CPU指令的实现。
 
 #### **1. 指令集**
 
@@ -147,6 +147,4 @@ POWER-PC由摩托罗拉公司和苹果公司联合开发的高性能32位和64�
 ## Reference:
 
 [深入iOS系统底层之指令集](https://www.jianshu.com/p/54884ce976ca)
-
-
 

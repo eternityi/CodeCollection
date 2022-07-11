@@ -76,26 +76,26 @@ struct category_t {
 
 通过源码我们发现，分类的方法，协议，属性等好像确实是存放在categroy结构体里面的，那么他又是如何存储在类对象中的呢？ 我们来看一下底层的内部方法探寻其中的原理。 首先我们通过命令行将Preson+Test.m文件转化为c++文件，查看其中的编译过程。
 
-```text
+```
 xcrun -sdk iphoneos clang -arch arm64 -rewrite-objc Category+Test.m
 ```
 
-[ref：](https://juejin.im/post/5aef0a3b518825670f7bc0f3)  
-  
+[ref：](https://juejin.im/post/5aef0a3b518825670f7bc0f3)\
+\
 
 
 #### 常见问题
 
 **1.关联对象添加成员变量**
 
-我们知道在一个类中用@property声明属性，编译器会自动帮我们生成`_成员变量`和`setter/getter`，但分类的指针结构体中，根本没有属性列表。所以在分类中用@property声明属性，既无法生成`_成员变量`也无法生成`setter/getter`。  
-因此结论是：我们可以用@property声明属性，编译和运行都会通过，只要不使用程序也不会崩溃。但如果调用了`_成员变量`和`setter/getter`方法，报错就在所难免了。  
-既然报错的根本原因是使用了系统没有生成的`setter/getter`方法，可不可以在手动添加`setter/getter`来避免崩溃，完成调用呢？  
+我们知道在一个类中用@property声明属性，编译器会自动帮我们生成`_成员变量`和`setter/getter`，但分类的指针结构体中，根本没有属性列表。所以在分类中用@property声明属性，既无法生成`_成员变量`也无法生成`setter/getter`。\
+因此结论是：我们可以用@property声明属性，编译和运行都会通过，只要不使用程序也不会崩溃。但如果调用了`_成员变量`和`setter/getter`方法，报错就在所难免了。\
+既然报错的根本原因是使用了系统没有生成的`setter/getter`方法，可不可以在手动添加`setter/getter`来避免崩溃，完成调用呢？\
 其实是可以的。由于OC是动态语言，方法真正的实现是通过`runtime`完成的，虽然系统不给我们生成`setter/getter`，但我们可以通过`runtime`手动添加`setter/getter`方法。
 
 实现如下:
 
-```text
+```
 #import <objc/runtime.h>
 
 static NSString *nameWithSetterGetterKey = @"nameWithSetterGetterKey";   //定义一个key值
@@ -118,16 +118,16 @@ static NSString *nameWithSetterGetterKey = @"nameWithSetterGetterKey";   //定�
 
 _问：Category的实现原理，以及Category为什么只能加方法不能加属性?_
 
-答：分类的实现原理是将category中的方法，属性，协议数据放在category\_t结构体中，然后将结构体内的方法列表拷贝到类对象的方法列表中。 Category可以添加属性，但是并不会自动生成成员变量及set/get方法。因为category\_t结构体中并不存在成员变量。通过之前对对象的分析我们知道成员变量是存放在实例对象中的，并且编译的那一刻就已经决定好了。而分类是在运行时才去加载的。那么我们就无法再程序运行时将分类的成员变量中添加到实例对象的结构体中。因此分类中不可以添加成员变量。  
-  
+答：分类的实现原理是将category中的方法，属性，协议数据放在category\_t结构体中，然后将结构体内的方法列表拷贝到类对象的方法列表中。 Category可以添加属性，但是并不会自动生成成员变量及set/get方法。因为category\_t结构体中并不存在成员变量。通过之前对对象的分析我们知道成员变量是存放在实例对象中的，并且编译的那一刻就已经决定好了。而分类是在运行时才去加载的。那么我们就无法再程序运行时将分类的成员变量中添加到实例对象的结构体中。因此分类中不可以添加成员变量。\
+\
 
 
 ### 扩展（Class Extension）
 
-Extension是Category的一个特例。类扩展与分类相比只少了分类的名称，所以称之为“匿名分类”。  
+Extension是Category的一个特例。类扩展与分类相比只少了分类的名称，所以称之为“匿名分类”。\
 其实开发当中，我们几乎天天在使用。对于有些人来说像是最熟悉的陌生人。
 
-```text
+```
 @interface XXX ()
 //私有属性
 //私有方法（如果不实现，编译时会报警,Method definition for 'XXX' not found）
@@ -136,9 +136,9 @@ Extension是Category的一个特例。类扩展与分类相比只少了分类的
 
 #### 作用：
 
-为一个类添加额外的原来没有变量，方法和属性  
-一般的类扩展写到`.m`文件中  
-一般的私有属性写到`.m`文件中的类扩展中  
+为一个类添加额外的原来没有变量，方法和属性\
+一般的类扩展写到`.m`文件中\
+一般的私有属性写到`.m`文件中的类扩展中\
 
 
 ### 分类与扩展的区别：
@@ -163,4 +163,3 @@ Extension是Category的一个特例。类扩展与分类相比只少了分类的
 * 是运行期决议的
 * 类扩展可以添加实例变量，分类不能添加实例变量
 * 原因：因为在运行期，对象的内存布局已经确定，如果添加实例变量会破坏类的内部布局，这对编译性语言是灾难性的。
-

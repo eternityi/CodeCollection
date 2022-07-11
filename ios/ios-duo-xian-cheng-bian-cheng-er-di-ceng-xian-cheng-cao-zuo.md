@@ -27,11 +27,11 @@
 
 当然第一步要包含头文件
 
-> \#import &lt;pthread.h&gt;
+> \#import \<pthread.h>
 
 然后创建线程，并执行任务
 
-```text
+```
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     pthread_t thread;
     //创建一个线程并自动执行
@@ -47,7 +47,7 @@ void *start(void *data) {
 
 打印输出：
 
-> 2015-07-27 23:57:21.689 testThread\[10616:2644653\] &lt;NSThread: 0x7fbb48d33690&gt;{number = 2, name = \(null\)}
+> 2015-07-27 23:57:21.689 testThread\[10616:2644653] \<NSThread: 0x7fbb48d33690>{number = 2, name = (null)}
 
 看代码就会发现他需要 **c语言函数**，这是比较蛋疼的，更蛋疼的是你需要手动处理线程的各个状态的转换即管理生命周期，比如，这段代码虽然创建了一个线程，但并没有销毁。
 
@@ -55,7 +55,5 @@ void *start(void *data) {
 
 很遗憾，在我目前的 `swift1.2`中无法执行这套方法，原因是这个函数需要传入一个函数指针 `CFunctionPointer<T>`类型，但是目前 swift 无法将方法转换成此类型。听说 `swift 2.0`引入一个新特性 `@convention(c)`, 可以完成 Swift 方法转换成 c 语言指针的。[在这里可以看到](https://link.jianshu.com/?t=http://stackoverflow.com/questions/25514176/using-swift-cfunctionpointer-to-pass-a-callback-to-coremidi-api)
 
-那么，`Pthreads`方案的多线程我就介绍这么多，毕竟做 iOS 开发几乎不可能用到。但是如果你感兴趣的话，或者说想要自己实现一套多线程方案，从底层开始定制，那么可以去搜一下相关资料。  
-  
-
-
+那么，`Pthreads`方案的多线程我就介绍这么多，毕竟做 iOS 开发几乎不可能用到。但是如果你感兴趣的话，或者说想要自己实现一套多线程方案，从底层开始定制，那么可以去搜一下相关资料。\
+\
